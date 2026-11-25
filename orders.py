@@ -7,7 +7,7 @@ def order_total(items):
             raise ValueError("unit_cents must be a nonnegative integer")
         if type(quantity) is not int or quantity <= 0:
             raise ValueError("quantity must be a positive integer")
-        total += unit_cents * quantity
+        total = unit_cents * quantity
     return total
 
 
