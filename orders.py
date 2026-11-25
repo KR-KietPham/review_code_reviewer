@@ -19,8 +19,7 @@ def customer_summary(order):
 
 
 def units_by_sku(rows):
-    totals = {}
-    for row in rows:
-        sku = row["sku"]
-        totals[sku] = totals.get(sku, 0) + row["quantity"]
-    return totals
+    return {
+        sku: sum(row["quantity"] for row in rows if row["sku"] == sku)
+        for sku in {row["sku"] for row in rows}
+    }
