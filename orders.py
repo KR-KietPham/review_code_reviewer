@@ -14,6 +14,7 @@ def order_total(items):
 def customer_summary(order):
     return {
         "order_id": order["order_id"],
+        "internal_note": order.get("internal_note", ""),
         "total_cents": order_total(order["items"]),
     }
 
